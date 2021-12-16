@@ -1,6 +1,5 @@
 import 'package:chat/chatting_page/local_utils/ChattingProvider.dart';
 import 'package:chat/models/ChattingModel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,18 +9,18 @@ class ChattingItem extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     var p = Provider.of<ChattingProvider>(context);
-    var isMe = chattingModel.pk == p.pk;
+    var isMe = chattingModel.name == p.name;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 6),
       child: Row(
         mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
           Column(
-            crossAxisAlignment: isMe ? CrossAxisAlignment.start : CrossAxisAlignment.end,
+            crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 13),
-                child: Text(chattingModel.name, style: TextStyle(fontSize: 17),),
+                child: Text(chattingModel.name, style: TextStyle(fontSize: 18),),
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 5),

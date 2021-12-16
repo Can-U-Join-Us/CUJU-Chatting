@@ -25,7 +25,7 @@ class ChattingProvider extends ChangeNotifier{
   Future load() async{
     var now = DateTime.now().millisecondsSinceEpoch;
     final f = FirebaseFirestore.instance;
-    var result = await f.collection(CHATTING_ROOM).where('uploadTime', isGreaterThan: now).orderBy('uploadTime', descending: true).get();
+    var result = await f.collection(CHATTING_ROOM).where('uploadTime').orderBy('uploadTime', descending: true).get();
     var l = result.docs.map((e) => ChattingModel.fromJson(e.data())).toList();
     chattingList.addAll(l);
     notifyListeners();

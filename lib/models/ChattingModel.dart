@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
+
 class ChattingModel {
-  ChattingModel(this.pk, this.name, this.text, this.uploadTime);
+  ChattingModel(this.pk, this.name, this.text,this.uploadTime);
   final String pk;
   final String name;
   final String text;
   final int uploadTime;
   
   factory ChattingModel.fromJson(Map<String, dynamic> json){
-    return ChattingModel(json['pk'], json['name'], json['text'], json['uploadtime']);
+    return ChattingModel(json['pk'], json['name'], json['text'],  json['uploadtime']);
   }
 
   Map<String, dynamic> toJson(){

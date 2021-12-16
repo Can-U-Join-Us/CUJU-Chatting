@@ -10,14 +10,14 @@ class ChattingItem extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     var p = Provider.of<ChattingProvider>(context);
-    var isMe = chattingModel == p.pk;
+    var isMe = chattingModel.pk == p.pk;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 6),
       child: Row(
         mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
           Column(
-            crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            crossAxisAlignment: isMe ? CrossAxisAlignment.start : CrossAxisAlignment.end,
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 13),
